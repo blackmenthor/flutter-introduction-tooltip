@@ -4,6 +4,8 @@
 .packages
 .pub/
 pubspec.lock
-.idea
+.idea/
+
+.iml
 
 build/
