@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # flutter_introduction_tooltip
 
 A new Flutter plugin to show introduction tooltip for first time open
@@ -12,4 +11,3 @@ For help on editing plugin code, view the [documentation](https://flutter.io/dev
 =======
 # flutter-introduction-tooltip
 Flutter Plugin to show introduction tooltip
->>>>>>> 259690191e3ee9619309582e28aac7dc245efff3
