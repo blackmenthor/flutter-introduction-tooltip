@@ -52,6 +52,8 @@ class FlutterIntroductionTooltip {
       String subtitle,
       String positiveBtn,
       VoidCallback positiveCallback,
+      bool showLine,
+      double lineHeight,
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
@@ -73,6 +75,8 @@ class FlutterIntroductionTooltip {
           subtitle,
           positiveBtn,
           positiveCallback,
+          showLine,
+          lineHeight,
           lineHorizontalPosition: lineHorizontalPosition,
           childBoxWidget: childBoxWidget,
       ),
@@ -87,6 +91,8 @@ class FlutterIntroductionTooltip {
       String subtitle,
       String positiveBtn,
       VoidCallback positiveCallback,
+      bool showLine,
+      double lineHeight,
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
@@ -102,6 +108,8 @@ class FlutterIntroductionTooltip {
         subtitle,
         positiveBtn,
         positiveCallback,
+        showLine,
+        lineHeight,
         lineHorizontalPosition: lineHorizontalPosition,
         childBoxWidget: childBoxWidget,
       ),
@@ -116,6 +124,8 @@ class FlutterIntroductionTooltip {
       String subtitle,
       String positiveBtn,
       VoidCallback positiveCallback,
+      bool showLine,
+      double lineHeight,
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
@@ -232,7 +242,7 @@ class FlutterIntroductionTooltip {
               ),
               Container(
                 width: 5.0,
-                height: 7.0,
+                height: lineHeight,
                 margin: EdgeInsets.only(left: lineLeftPadding),
                 color: Colors.white,
                 child: Container(),
@@ -261,6 +271,8 @@ class FlutterIntroductionTooltip {
       String subtitle,
       String positiveBtn,
       VoidCallback positiveCallback,
+      bool showLine,
+      double lineHeight,
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
@@ -308,7 +320,7 @@ class FlutterIntroductionTooltip {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
+              showLine ? Container(
                 width: 20.0,
                 height: 20.0,
                 margin: EdgeInsets.only(left: circleLeftPadding),
@@ -316,14 +328,14 @@ class FlutterIntroductionTooltip {
                     color: primaryColor,
                     shape: BoxShape.circle
                 ),
-              ),
-              Container(
+              ) : Container(),
+              showLine ? Container(
                 width: 5.0,
-                height: 7.0,
+                height: lineHeight,
                 margin: EdgeInsets.only(left: lineLeftPadding),
                 color: Colors.white,
                 child: Container(),
-              ),
+              ): Container(),
               childBoxWidget ?? Container(
                 width: MediaQuery
                     .of(context)
@@ -406,6 +418,8 @@ class FlutterIntroductionTooltip {
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
+        bool showLine = true,
+        double lineHeight = 7.0,
       }
       ) {
     try {
@@ -432,6 +446,8 @@ class FlutterIntroductionTooltip {
                             subtitle,
                             positiveBtn,
                             positiveCallback,
+                            showLine,
+                            lineHeight,
                             lineHorizontalPosition: lineHorizontalPosition,
                             childBoxWidget: childBoxWidget,
                         ),
@@ -464,6 +480,8 @@ class FlutterIntroductionTooltip {
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
+        bool showLine = true,
+        double lineHeight = 7.0,
       }
     ) {
     try {
@@ -490,6 +508,8 @@ class FlutterIntroductionTooltip {
                             subtitle,
                             positiveBtn,
                             positiveCallback,
+                            showLine,
+                            lineHeight,
                             lineHorizontalPosition: lineHorizontalPosition,
                             childBoxWidget: childBoxWidget,
                         ),
