@@ -78,10 +78,14 @@ class _MyAppState extends State<MyApp>{
               showTutorial(context);
               return Container(
                 width: MediaQuery.of(context).size.width,
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  'Running on: $_platformVersion\n',
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  color: Colors.blue,
+                  height: 80.0,
                   key: globalKey,
+                  child: Text(
+                    'Running on: $_platformVersion\n',
+                  ),
                 ),
               );
             }

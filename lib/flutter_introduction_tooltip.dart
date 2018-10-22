@@ -17,8 +17,8 @@ enum LineHorizontalPosition {
 }
 
 Rect getInvisibleRect(Rect rect) {
-  return Rect.fromLTRB(rect.left - 8.0, rect.top - ((rect.height/2)-8),
-      rect.right + 8.0, rect.bottom - ((rect.height/2)-8));
+  return Rect.fromLTRB(rect.left, rect.top - 24,
+      rect.right, rect.bottom - 24);
 }
 
 class FlutterIntroductionTooltip {
@@ -99,7 +99,7 @@ class FlutterIntroductionTooltip {
       }
     ) {
     return Positioned(
-      top: rect.bottom - ((rect.height/2)-8),
+      top: rect.bottom - 24.0,
       child: _bottomDialog(
         context,
         rect,
@@ -556,8 +556,6 @@ class _InvisiblePainter extends CustomPainter {
   final Rect rect;
   final BoxShadow shadow;
   final _InvisibleClipper clipper;
-
-  final double newOffset = 8.0;
 
   void paint(Canvas canvas, Size size) {
     Rect newRect = getInvisibleRect(rect);
