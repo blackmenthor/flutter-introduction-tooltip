@@ -14,12 +14,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp>{
   String _platformVersion = 'Unknown';
   GlobalKey globalKey = GlobalKey();
+  GlobalKey globalKey2 = GlobalKey();
   bool isShowing = false;
+  bool isShowing2 = false;
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
+  }
+
+  void popAndNextTutorial(BuildContext context) {
+    Navigator.pop(context);
+    showTutorial2(context);
   }
 
   void showTutorial(BuildContext context) async {
@@ -30,13 +37,36 @@ class _MyAppState extends State<MyApp>{
               context,
               globalKey,
               Colors.blue,
-                  () => Navigator.pop(context),
+                  () => popAndNextTutorial(context),
               "MAMA",
               "MAMA IS A LOREM IPSUM",
               "ALRIGHT");
           print("SHOWING");
           setState(() {
             isShowing = true;
+          });
+        } catch (e) {
+          print("ERROR $e");
+        }
+      });
+    }
+  }
+
+  void showTutorial2(BuildContext context) async {
+    if (!isShowing2) {
+      new Timer(Duration(milliseconds: 100), () async {
+        try {
+          FlutterIntroductionTooltip.showBottomTutorialOnWidget(
+              context,
+              globalKey2,
+              Colors.blue,
+                  () => Navigator.pop(context),
+              "MAMA",
+              "MAMA IS A LOREM IPSUM",
+              "ALRIGHT");
+          print("SHOWING");
+          setState(() {
+            isShowing2 = true;
           });
         } catch (e) {
           print("ERROR $e");
@@ -76,17 +106,37 @@ class _MyAppState extends State<MyApp>{
         body: Builder(
             builder: (BuildContext context) {
               showTutorial(context);
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  color: Colors.blue,
-                  height: 80.0,
-                  key: globalKey,
-                  child: Text(
-                    'Running on: $_platformVersion\n',
+              return Stack(
+                children: <Widget> [
+                  Container(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      color: Colors.blue,
+                      key: globalKey,
+                      child: Text(
+                        'Running on: $_platformVersion\n',
+                      ),
+                    ),
                   ),
-                ),
+                  Container(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    alignment: Alignment.topCenter,
+                    child: Container(
+                      color: Colors.blue,
+                      key: globalKey2,
+                      child: Text(
+                        'Running on: $_platformVersion\n',
+                      ),
+                    ),
+                  )
+                ],
               );
             }
         ),
