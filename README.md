@@ -135,3 +135,7 @@ OPTIONAL
 
 Any contributions is very welcomed in this package, just fork this repository to your own github account and create a
 pull request with the changes description.
+
+## Contact
+
+If you need to ask or discuss about anything, just email me at anggadwiarifandi96@gmail.com
