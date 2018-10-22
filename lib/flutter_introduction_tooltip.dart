@@ -12,9 +12,13 @@ enum IntroductionHorizontalPosition {
   left, right, center
 }
 
+enum LineHorizontalPosition {
+  left, right, center
+}
+
 Rect getInvisibleRect(Rect rect) {
-  return Rect.fromLTRB(rect.left - 8.0, rect.top,
-      rect.right + 8.0, rect.bottom);
+  return Rect.fromLTRB(rect.left - 8.0, rect.top - ((rect.height/2)-8),
+      rect.right + 8.0, rect.bottom - ((rect.height/2)-8));
 }
 
 class FlutterIntroductionTooltip {
@@ -47,7 +51,10 @@ class FlutterIntroductionTooltip {
       String title,
       String subtitle,
       String positiveBtn,
-      VoidCallback positiveCallback
+      VoidCallback positiveCallback,
+      {
+        LineHorizontalPosition lineHorizontalPosition
+      }
       ) {
     Rect invisibleRect = getInvisibleRect(rect);
     Rect newRect = rect.translate(0.0 , - 1.0);
@@ -64,7 +71,8 @@ class FlutterIntroductionTooltip {
           title,
           subtitle,
           positiveBtn,
-          positiveCallback
+          positiveCallback,
+          lineHorizontalPosition: lineHorizontalPosition,
       ),
     );
   }
@@ -77,9 +85,12 @@ class FlutterIntroductionTooltip {
       String subtitle,
       String positiveBtn,
       VoidCallback positiveCallback,
+      {
+        LineHorizontalPosition lineHorizontalPosition,
+      }
     ) {
     return Positioned(
-      top: rect.bottom - (rect.height / 2) - 8,
+      top: rect.bottom - ((rect.height/2)-8),
       child: _bottomDialog(
         context,
         rect,
@@ -88,6 +99,7 @@ class FlutterIntroductionTooltip {
         subtitle,
         positiveBtn,
         positiveCallback,
+        lineHorizontalPosition: lineHorizontalPosition,
       ),
     );
   }
@@ -99,7 +111,10 @@ class FlutterIntroductionTooltip {
       String title,
       String subtitle,
       String positiveBtn,
-      VoidCallback positiveCallback
+      VoidCallback positiveCallback,
+      {
+        LineHorizontalPosition lineHorizontalPosition,
+      }
       ) {
   Rect invisibleRect = getInvisibleRect(rect);
   final screenWidth = MediaQuery.of(context).size.width;
@@ -115,6 +130,21 @@ class FlutterIntroductionTooltip {
   multiplier = absLeft;
   }
   multiplier = absCenter;
+  if (lineHorizontalPosition != null) {
+    switch(lineHorizontalPosition) {
+      case LineHorizontalPosition.center:
+        multiplier = absCenter;
+        break;
+      case LineHorizontalPosition.left:
+        multiplier = absLeft;
+        break;
+      case LineHorizontalPosition.right:
+        multiplier = absRight;
+        break;
+      default:
+        break;
+    }
+  }
   final double lineLeftPadding = (multiplier*8).toDouble();
   final double circleLeftPadding = ((multiplier-1)*8).toDouble();
 
@@ -226,6 +256,9 @@ class FlutterIntroductionTooltip {
       String subtitle,
       String positiveBtn,
       VoidCallback positiveCallback,
+      {
+        LineHorizontalPosition lineHorizontalPosition
+      }
     ) {
     Rect invisibleRect = getInvisibleRect(rect);
     final screenWidth = MediaQuery.of(context).size.width;
@@ -241,6 +274,21 @@ class FlutterIntroductionTooltip {
       multiplier = absLeft;
     }
     multiplier = absCenter;
+    if (lineHorizontalPosition != null) {
+      switch (lineHorizontalPosition) {
+        case LineHorizontalPosition.center:
+          multiplier = absCenter;
+          break;
+        case LineHorizontalPosition.left:
+          multiplier = absLeft;
+          break;
+        case LineHorizontalPosition.right:
+          multiplier = absRight;
+          break;
+        default:
+          break;
+      }
+    }
     final double lineLeftPadding = (multiplier*8).toDouble();
     final double circleLeftPadding = ((multiplier-1)*8).toDouble();
 
@@ -349,10 +397,13 @@ class FlutterIntroductionTooltip {
       String title,
       String subtitle,
       String positiveBtn,
+      {
+        LineHorizontalPosition lineHorizontalPosition,
+      }
       ) {
     try {
       final box = globalKey.currentContext.findRenderObject() as RenderBox;
-      Rect rect =  box.localToGlobal(Offset(0, 80)) & box.size;
+      Rect rect =  box.localToGlobal(Offset.zero) & box.size;
       showGeneralDialog(
         context: context,
         pageBuilder: (BuildContext buildContext, Animation<double> animation,
@@ -374,6 +425,7 @@ class FlutterIntroductionTooltip {
                             subtitle,
                             positiveBtn,
                             positiveCallback,
+                            lineHorizontalPosition: lineHorizontalPosition,
                         ),
                       ],
                     );
@@ -401,10 +453,13 @@ class FlutterIntroductionTooltip {
       String title,
       String subtitle,
       String positiveBtn,
+      {
+        LineHorizontalPosition lineHorizontalPosition,
+      }
     ) {
     try {
       final box = globalKey.currentContext.findRenderObject() as RenderBox;
-      Rect rect =  box.localToGlobal(Offset(0, -box.size.height)) & box.size;
+      Rect rect =  box.localToGlobal(Offset.zero) & box.size;
       showGeneralDialog(
         context: context,
         pageBuilder: (BuildContext buildContext, Animation<double> animation,
@@ -425,7 +480,8 @@ class FlutterIntroductionTooltip {
                             title,
                             subtitle,
                             positiveBtn,
-                            positiveCallback
+                            positiveCallback,
+                            lineHorizontalPosition: lineHorizontalPosition,
                         ),
                       ],
                     );
