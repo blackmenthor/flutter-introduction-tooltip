@@ -57,6 +57,7 @@ class FlutterIntroductionTooltip {
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
+        Widget circleWidget,
       }
       ) {
     Rect invisibleRect = getInvisibleRect(rect);
@@ -79,6 +80,7 @@ class FlutterIntroductionTooltip {
           lineHeight,
           lineHorizontalPosition: lineHorizontalPosition,
           childBoxWidget: childBoxWidget,
+          circleWidget: circleWidget,
       ),
     );
   }
@@ -96,6 +98,7 @@ class FlutterIntroductionTooltip {
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
+        Widget circleWidget,
       }
     ) {
     return Positioned(
@@ -112,6 +115,7 @@ class FlutterIntroductionTooltip {
         lineHeight,
         lineHorizontalPosition: lineHorizontalPosition,
         childBoxWidget: childBoxWidget,
+        circleWidget: circleWidget,
       ),
     );
   }
@@ -129,6 +133,7 @@ class FlutterIntroductionTooltip {
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
+        Widget circleWidget,
       }
       ) {
   Rect invisibleRect = getInvisibleRect(rect);
@@ -240,14 +245,14 @@ class FlutterIntroductionTooltip {
                   ],
                 ),
               ),
-              Container(
+              showLine ? Container(
                 width: 5.0,
                 height: lineHeight,
                 margin: EdgeInsets.only(left: lineLeftPadding),
                 color: Colors.white,
                 child: Container(),
-              ),
-              Container(
+              ) : Container(),
+              showLine ? circleWidget != null ? circleWidget : Container(
                 width: 20.0,
                 height: 20.0,
                 margin: EdgeInsets.only(left: circleLeftPadding),
@@ -255,7 +260,7 @@ class FlutterIntroductionTooltip {
                     color: primaryColor,
                     shape: BoxShape.circle
                 ),
-              ),
+              ) : Container(),
             ],
           ),
         ),
@@ -276,6 +281,7 @@ class FlutterIntroductionTooltip {
       {
         LineHorizontalPosition lineHorizontalPosition,
         Widget childBoxWidget,
+        Widget circleWidget,
       }
     ) {
     Rect invisibleRect = getInvisibleRect(rect);
@@ -320,7 +326,7 @@ class FlutterIntroductionTooltip {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              showLine ? Container(
+              showLine ? circleWidget != null ? circleWidget : Container(
                 width: 20.0,
                 height: 20.0,
                 margin: EdgeInsets.only(left: circleLeftPadding),
@@ -420,6 +426,8 @@ class FlutterIntroductionTooltip {
         Widget childBoxWidget,
         bool showLine = true,
         double lineHeight = 7.0,
+        Widget circleWidget,
+        bool barrierDismissable = true,
       }
       ) {
     try {
@@ -450,6 +458,7 @@ class FlutterIntroductionTooltip {
                             lineHeight,
                             lineHorizontalPosition: lineHorizontalPosition,
                             childBoxWidget: childBoxWidget,
+                            circleWidget: circleWidget,
                         ),
                       ],
                     );
@@ -458,7 +467,7 @@ class FlutterIntroductionTooltip {
             ),
           );
         },
-        barrierDismissible: true,
+        barrierDismissible: barrierDismissable,
         barrierLabel: MaterialLocalizations
             .of(context)
             .modalBarrierDismissLabel,
@@ -482,6 +491,8 @@ class FlutterIntroductionTooltip {
         Widget childBoxWidget,
         bool showLine = true,
         double lineHeight = 7.0,
+        Widget circleWidget,
+        bool barrierDismissable = true,
       }
     ) {
     try {
@@ -512,6 +523,7 @@ class FlutterIntroductionTooltip {
                             lineHeight,
                             lineHorizontalPosition: lineHorizontalPosition,
                             childBoxWidget: childBoxWidget,
+                            circleWidget: circleWidget,
                         ),
                       ],
                     );
@@ -520,7 +532,7 @@ class FlutterIntroductionTooltip {
             ),
           );
         },
-        barrierDismissible: true,
+        barrierDismissible: barrierDismissable,
         barrierLabel: MaterialLocalizations
             .of(context)
             .modalBarrierDismissLabel,
