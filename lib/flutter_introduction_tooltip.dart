@@ -252,7 +252,10 @@ class FlutterIntroductionTooltip {
                 color: Colors.white,
                 child: Container(),
               ) : Container(),
-              showLine ? circleWidget != null ? circleWidget : Container(
+              showLine ? circleWidget != null ? Container(
+                  margin: EdgeInsets.only(left: circleLeftPadding),
+                  child: circleWidget,
+                ) : Container(
                 width: 20.0,
                 height: 20.0,
                 margin: EdgeInsets.only(left: circleLeftPadding),
@@ -326,7 +329,10 @@ class FlutterIntroductionTooltip {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              showLine ? circleWidget != null ? circleWidget : Container(
+              showLine ? circleWidget != null ? Container(
+                margin: EdgeInsets.only(left: circleLeftPadding),
+                child: circleWidget,
+              ) : Container(
                 width: 20.0,
                 height: 20.0,
                 margin: EdgeInsets.only(left: circleLeftPadding),
