@@ -10,3 +10,6 @@ Implemented functions:
 - Make barrierdismissable customizable
 - Make lineHeight customizable
 - Make showline customizable,
+
+## 0.0.2
+- Generate dartdoc
