@@ -1,3 +1,12 @@
+*TODO: 
+- Make function that can shows tooltip in right or left of the widget
+
 ## 0.0.1
 
-* TODO: Describe initial release.
+Implemented functions:
+- Show tooltip as a dialog on top or bottom of a widget
+- Make inside widget customizable
+- Make circle widget customizable
+- Make barrierdismissable customizable
+- Make lineHeight customizable
+- Make showline customizable,
