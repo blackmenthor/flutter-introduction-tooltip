@@ -122,7 +122,7 @@ class FlutterIntroductionTooltip {
 
   static Widget _topDialog(
       BuildContext context,
-      Rect rect
+      Rect rect,
       Color primaryColor,
       String title,
       String subtitle,
