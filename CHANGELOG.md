@@ -14,3 +14,6 @@ Implemented functions:
 ## 0.0.2
 - Generate dartdoc
 - add more padding so the line and widget intersect
+
+## 0.0.3
+- Fix bugs so got higher score
