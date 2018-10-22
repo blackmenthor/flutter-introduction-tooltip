@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_introduction_tooltip/flutter_introduction_tooltip.dart';
-import 'package:rect_getter/rect_getter.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp>{
   String _platformVersion = 'Unknown';
-  GlobalKey globalKey = RectGetter.createGlobalKey();
+  GlobalKey globalKey = GlobalKey();
   bool isShowing = false;
 
   @override

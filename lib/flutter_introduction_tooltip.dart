@@ -3,7 +3,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rect_getter/rect_getter.dart';
 
 enum IntroductionVerticalPosition {
   bottom, top
@@ -11,6 +10,11 @@ enum IntroductionVerticalPosition {
 
 enum IntroductionHorizontalPosition {
   left, right, center
+}
+
+Rect getInvisibleRect(Rect rect) {
+  return Rect.fromLTRB(rect.left - 8.0, rect.top,
+      rect.right + 8.0, rect.bottom);
 }
 
 class FlutterIntroductionTooltip {
@@ -45,8 +49,7 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       VoidCallback positiveCallback
       ) {
-    Rect invisibleRect = Rect.fromLTRB(rect.left - 8.0, rect.top - (rect.height/2) - 8.0,
-        rect.right + 8.0, rect.bottom - (rect.height/2) - 8.0);
+    Rect invisibleRect = getInvisibleRect(rect);
     Rect newRect = rect.translate(0.0 , - 1.0);
     while (newRect.bottom > (invisibleRect.top + 24.0)) {
       newRect = newRect.translate(0.0, - 1.0);
@@ -98,8 +101,7 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       VoidCallback positiveCallback
       ) {
-  Rect invisibleRect = Rect.fromLTRB(rect.left - 8.0, rect.top - (rect.height/2) - 8.0,
-  rect.right + 8.0, rect.bottom - (rect.height/2) - 8.0);
+  Rect invisibleRect = getInvisibleRect(rect);
   final screenWidth = MediaQuery.of(context).size.width;
   final middleHorizontal = screenWidth/2;
   final dialogWidth = (screenWidth).round();
@@ -225,8 +227,7 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       VoidCallback positiveCallback,
     ) {
-    Rect invisibleRect = Rect.fromLTRB(rect.left - 8.0, rect.top - (rect.height/2) - 8.0,
-        rect.right + 8.0, rect.bottom - (rect.height/2) - 8.0);
+    Rect invisibleRect = getInvisibleRect(rect);
     final screenWidth = MediaQuery.of(context).size.width;
     final middleHorizontal = screenWidth/2;
     final dialogWidth = (screenWidth).round();
@@ -350,7 +351,8 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       ) {
     try {
-      Rect rect = RectGetter.getRectFromKey(globalKey);
+      final box = globalKey.currentContext.findRenderObject() as RenderBox;
+      Rect rect =  box.localToGlobal(Offset(0, 80)) & box.size;
       showGeneralDialog(
         context: context,
         pageBuilder: (BuildContext buildContext, Animation<double> animation,
@@ -401,7 +403,8 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
     ) {
     try {
-      Rect rect = RectGetter.getRectFromKey(globalKey);
+      final box = globalKey.currentContext.findRenderObject() as RenderBox;
+      Rect rect =  box.localToGlobal(Offset(0, -box.size.height)) & box.size;
       showGeneralDialog(
         context: context,
         pageBuilder: (BuildContext buildContext, Animation<double> animation,
@@ -471,8 +474,7 @@ class _InvisiblePainter extends CustomPainter {
   final double newOffset = 8.0;
 
   void paint(Canvas canvas, Size size) {
-    Rect newRect = Rect.fromLTRB(rect.left - newOffset, rect.top - (rect.height/2) - newOffset,
-        rect.right + newOffset, rect.bottom - (rect.height/2) - newOffset);
+    Rect newRect = getInvisibleRect(rect);
     canvas.saveLayer(Offset.zero & size, Paint());
     canvas.drawColor(shadow.color, BlendMode.dstATop);
     canvas.drawRect(newRect, Paint()..blendMode = BlendMode.clear);
