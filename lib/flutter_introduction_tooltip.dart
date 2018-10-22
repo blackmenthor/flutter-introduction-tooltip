@@ -53,7 +53,8 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       VoidCallback positiveCallback,
       {
-        LineHorizontalPosition lineHorizontalPosition
+        LineHorizontalPosition lineHorizontalPosition,
+        Widget childBoxWidget,
       }
       ) {
     Rect invisibleRect = getInvisibleRect(rect);
@@ -73,6 +74,7 @@ class FlutterIntroductionTooltip {
           positiveBtn,
           positiveCallback,
           lineHorizontalPosition: lineHorizontalPosition,
+          childBoxWidget: childBoxWidget,
       ),
     );
   }
@@ -87,6 +89,7 @@ class FlutterIntroductionTooltip {
       VoidCallback positiveCallback,
       {
         LineHorizontalPosition lineHorizontalPosition,
+        Widget childBoxWidget,
       }
     ) {
     return Positioned(
@@ -100,6 +103,7 @@ class FlutterIntroductionTooltip {
         positiveBtn,
         positiveCallback,
         lineHorizontalPosition: lineHorizontalPosition,
+        childBoxWidget: childBoxWidget,
       ),
     );
   }
@@ -114,6 +118,7 @@ class FlutterIntroductionTooltip {
       VoidCallback positiveCallback,
       {
         LineHorizontalPosition lineHorizontalPosition,
+        Widget childBoxWidget,
       }
       ) {
   Rect invisibleRect = getInvisibleRect(rect);
@@ -158,7 +163,7 @@ class FlutterIntroductionTooltip {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
+              childBoxWidget ?? Container(
                 width: MediaQuery
                     .of(context)
                     .size
@@ -257,7 +262,8 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       VoidCallback positiveCallback,
       {
-        LineHorizontalPosition lineHorizontalPosition
+        LineHorizontalPosition lineHorizontalPosition,
+        Widget childBoxWidget,
       }
     ) {
     Rect invisibleRect = getInvisibleRect(rect);
@@ -318,7 +324,7 @@ class FlutterIntroductionTooltip {
                 color: Colors.white,
                 child: Container(),
               ),
-              Container(
+              childBoxWidget ?? Container(
                 width: MediaQuery
                     .of(context)
                     .size
@@ -399,6 +405,7 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       {
         LineHorizontalPosition lineHorizontalPosition,
+        Widget childBoxWidget,
       }
       ) {
     try {
@@ -426,6 +433,7 @@ class FlutterIntroductionTooltip {
                             positiveBtn,
                             positiveCallback,
                             lineHorizontalPosition: lineHorizontalPosition,
+                            childBoxWidget: childBoxWidget,
                         ),
                       ],
                     );
@@ -455,6 +463,7 @@ class FlutterIntroductionTooltip {
       String positiveBtn,
       {
         LineHorizontalPosition lineHorizontalPosition,
+        Widget childBoxWidget,
       }
     ) {
     try {
@@ -482,6 +491,7 @@ class FlutterIntroductionTooltip {
                             positiveBtn,
                             positiveCallback,
                             lineHorizontalPosition: lineHorizontalPosition,
+                            childBoxWidget: childBoxWidget,
                         ),
                       ],
                     );
