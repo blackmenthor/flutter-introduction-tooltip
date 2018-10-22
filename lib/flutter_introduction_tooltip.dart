@@ -67,7 +67,7 @@ class FlutterIntroductionTooltip {
     }
 
     return Positioned(
-      bottom: MediaQuery.of(context).size.height - newRect.bottom,
+      bottom: MediaQuery.of(context).size.height - (newRect.bottom + 10.0),
       child: _topDialog(
           context,
           rect,
@@ -102,7 +102,7 @@ class FlutterIntroductionTooltip {
       }
     ) {
     return Positioned(
-      top: rect.bottom - 24.0,
+      top: rect.bottom - 24.0 - 10.0,
       child: _bottomDialog(
         context,
         rect,
