@@ -13,9 +13,9 @@ For help on editing plugin code, view the [documentation](https://flutter.io/dev
 
 # Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/blackmenthor/flutter-introduction-tooltip/master/Screenshot_1.png){:width="72px"}
+![Screenshot](https://raw.githubusercontent.com/blackmenthor/flutter-introduction-tooltip/master/Screenshot_1.png | width=100)
 
-![Screenshot](https://raw.githubusercontent.com/blackmenthor/flutter-introduction-tooltip/master/Screenshot_2.png){:width="72px"}
+![Screenshot](https://raw.githubusercontent.com/blackmenthor/flutter-introduction-tooltip/master/Screenshot_2.png | width=100)
 
 # Installation and Usage
 
