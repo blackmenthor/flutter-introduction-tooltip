@@ -11,6 +11,11 @@ For help getting started with Flutter, view our online
 
 For help on editing plugin code, view the [documentation](https://flutter.io/developing-packages/#edit-plugin-package).
 
+# Screenshots
+
+![alt text](https://raw.githubusercontent.com/blackmenthor/flutter-introduction-tooltip/master/Screenshot_1.png)
+![alt text](https://raw.githubusercontent.com/blackmenthor/flutter-introduction-tooltip/master/Screenshot_2.png)
+
 # Installation and Usage
 
 To install this package, you need to add `flutter_introduction_tooltip` (0.1.0 or higher) to the dependencies
