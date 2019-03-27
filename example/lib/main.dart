@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp>{
 
   void showTutorial(BuildContext context) async {
     if (!isShowing) {
-      new Timer(Duration(milliseconds: 100), () async {
+      new Timer(Duration(seconds: 1), () async {
         try {
           FlutterIntroductionTooltip.showTopTutorialOnWidget(
               context,
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp>{
 
   void showTutorial2(BuildContext context) async {
     if (!isShowing2) {
-      new Timer(Duration(milliseconds: 100), () async {
+      new Timer(Duration(milliseconds: 500), () async {
         try {
           FlutterIntroductionTooltip.showBottomTutorialOnWidget(
               context,
@@ -97,7 +97,6 @@ class _MyAppState extends State<MyApp>{
 
   @override
   Widget build(BuildContext context) {
-    showTutorial(context);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(

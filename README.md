@@ -139,3 +139,14 @@ pull request with the changes description.
 ## Contact
 
 If you need to ask or discuss about anything, just email me at anggadwiarifandi96@gmail.com
+
+## CHANGES
+- 0.0.4 (BREAKING)
+    -   Migrate to AndroidX and change kotlin dependencies
+    -   Fix example
+- 0.0.3
+    -   Fix missing commas (compile error)
+- 0.0.2
+    -   Refactor
+- 0.0.1
+    - Initial Version
